@@ -6,7 +6,14 @@
     </head>
     <body>
         <script>
-            //Javascript goes here // 
+            // Create function that randomly returns "Rock", "Paper", "Scissors" //
+            function computerPlay() {
+                const options = ["Rock", "Paper", "Scissors"];
+                var randomSelection = options[Math.floor(Math.random()*options.length)];
+                console.log(randomSelection);
+            }
+            console.log(computerPlay());
+    
         </script>
     </body>
 </html>
