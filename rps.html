@@ -56,12 +56,12 @@
                    let playerSelection = prompt("Rock, paper, scissors?").toLowerCase();
                    const computerSelection = computerPlay();
                    console.log (playRound(playerSelection, computerSelection));
-                   if (i === 5 && playerScore > computerScore) {
-                       alert ("You Win!");
+                   if (i === 4 && playerScore > computerScore) {
+                       alert ("You win!");
                    } else if (i === 4 && computerScore > playerScore) {
-                       alert ("You Lose!");
-                   } else if (i === 4 && playerScore === computerScore) {
-                       alert ("It's a tie!");
+                       alert ("You lose!");
+                   } else if (i===4 && playerScore === computerScore) {
+                       alert ("It's a tie");
                    }
                }
             }
