@@ -44,10 +44,29 @@
                 } else if (playerSelection === "paper" && computerSelection === "paper") {
                     return "It's a tie! You both picked Paper. Score: " + playerScore + " - " + computerScore; 
                 } else {
-                    return "You lose";
+                    return "Error, try again";
                 }
             }
             console.log(playRound(playerSelection, computerSelection))
+
+            // Function that loops for 5 rounds // 
+
+           function game () {
+               for (let i = 0; i < 5; i++) {
+                   let playerSelection = prompt("Rock, paper, scissors?").toLowerCase();
+                   const computerSelection = computerPlay();
+                   console.log (playRound(playerSelection, computerSelection));
+                   if (i === 5 && playerScore > computerScore) {
+                       alert ("You Win!");
+                   } else if (i === 4 && computerScore > playerScore) {
+                       alert ("You Lose!");
+                   } else if (i === 4 && playerScore === computerScore) {
+                       alert ("It's a tie!");
+                   }
+               }
+            }
+            game(); 
+
 
         </script>
     </body>
