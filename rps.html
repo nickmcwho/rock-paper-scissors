@@ -10,6 +10,15 @@
         <button id = "rock">Rock</button>
         <button id = "paper">Paper</button>
         <button id = "scissors">Scissors</button>
+        <br>
+        <div id = "results">
+            <h3>Results</h3>
+            <div id = "player">Player</div>
+            <div id = "pScore">0</div>
+            <div id = "computer">Computer</div>
+            <div id = "cScore">0</div>
+            <div id = "rOutcome"></div>
+        </div>
 
         <script>
 
@@ -20,6 +29,9 @@
                 return options[Math.floor(Math.random()*options.length)];       
             }
            computerPlay();
+
+           const computerSelection = computerPlay();
+
 
             // Create function that returns player selection and calls playRound function 
 
@@ -37,11 +49,42 @@
            // Create function that plays one round of rock, paper, scissors //
 
             // let playerSelection = prompt("Rock, paper, scissors?").toLowerCase();
-            const computerSelection = computerPlay();
-            let playerScore = 0; 
-            let computerScore = 0;
+        
+            let playerScore = document.querySelector("#pScore");
+            let computerScore = document.querySelector("#cScore");
+            let roundOutcome = document.querySelector("#rOutcome");
 
             function playRound(playerSelection, computerSelection) {
+                if (playerSelection === "rock" && computerSelection === "scissors") {
+                    ++playerScore.innerHTML;
+                    roundOutcome.textContent = "You win! Rock beats Scissors.";
+                } else if (playerSelection === "paper" && computerSelection === "rock") {
+                    ++playerScore.innerHTML;
+                    roundOutcome.textContent = "You win! Paper beats Rock.";
+                } else if (playerSelection === "scissors" && computerSelection === "paper") {
+                    ++playerScore.innerHTML;
+                    roundOutcome.textContent = "You win! Scissors beats Paper.";
+                } else if (playerSelection === "rock" && computerSelection === "paper") {
+                    ++computerScore.innerHTML;
+                    roundOutcome.textContent = "You lose! Paper beats Rock.";
+                } else if (playerSelection === "paper" && computerSelection === "scissors") {
+                    ++computerScore.innerHTML;
+                    roundOutcome.textContent = "You lose! Scissors beat Paper.";
+                } else if (playerSelection === "scissors" && computerSelection === "rock") {
+                    ++computerScore.innerHTML;
+                    roundOutcome.textContent = "You lose! Rock beats Scissors.";
+                } else if (playerSelection === "rock" && computerSelection === "rock") {
+                    roundOutcome.textContent = "It's a tie! You both picked Rock."
+                } else if (playerSelection === "scissors" && computerSelection === "scissors") {
+                    roundOutcome.textContent = "It's a tie! You both picked Scissors.";
+                } else if (playerSelection === "paper" && computerSelection === "paper") {
+                    roundOutcome.textContent = "It's a tie! You both picked Paper."; 
+                } else {
+                    roundOutcome.textContent ="Error, try again";
+                }
+            }
+
+            /*function playRound(playerSelection, computerSelection) {
                 if (playerSelection === "rock" && computerSelection === "scissors") {
                     console.log("You win! Rock beats Scissors. Score: " + ++(playerScore) + " - " + computerScore);
                 } else if (playerSelection === "paper" && computerSelection === "rock") {
@@ -63,7 +106,7 @@
                 } else {
                     console.log("Error, try again");
                 }
-            }
+            } */
 
             // Function that loops until computer or user wins 5 rounds // 
 
