@@ -5,6 +5,7 @@
         <title>Rock Paper Scissors</title>
     </head>
     <body>
+
         <h1> Rock Paper Scissors </h1>
         <h3> Choose your weapon </h3>   
         <button id = "rock">Rock</button>
@@ -96,7 +97,6 @@
                 computerScore.innerHTML = computerScore.value;
                 if (playerScore.value === 5) {
                 roundOutcome.textContent = "Game Over. You win!" ;
-                playAgain.hidden = false; 
                 for (button of buttons) {
                     button.disabled = true;
                 }
@@ -104,13 +104,11 @@
                 roundOutcome.textContent = "Game Over. You lose!";
                 for (button of buttons) {
                     button.disabled = true;
-                    playAgain.hidden = false; 
                 }
                 } else if (playerScore.value === 5 && computerScore.value === 5) {
                 roundOutcome.textContent ="Game Over. It's a tie";
                 for (button of buttons) {
-                    button.disabled = true; 
-                    playAgain.hidden = false; 
+                    button.disabled = true;  
                 }
                 }
             }
